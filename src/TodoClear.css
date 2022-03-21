@@ -1,0 +1,27 @@
+.TodoClear__container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.btn__del {
+    background: #d9534f;
+    color: #fff;
+    border-radius: 8px;
+    width: 40%;
+}
+
+.btn__del-iconHolder {
+    color: #fff;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f0ad4e;
+    padding: 8.9px;
+    border-radius: 8px;
+
+}

@@ -1,0 +1,13 @@
+.icon {
+    color: #0275d8;
+    margin: 0 5px;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    outline: none;
+    padding: 10px;
+}

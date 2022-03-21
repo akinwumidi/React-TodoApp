@@ -1,0 +1,53 @@
+.TodoItems {
+    font-family: Roboto, sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    font-size: 15px;
+    font-weight: 100;
+    margin-bottom: 10px;
+    width: 100%;
+    background: #f1f1f1;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+
+}
+
+.TodoItems p {
+    padding: 8px;
+    /* border: 1px solid red; */
+    width: 80%;
+}
+
+.TodoItems__icons {
+    width: 15%;
+    color: #0275d8;
+    /* border: 1px solid red; */
+}
+
+/* .TodoItems__icons .icon::after,
+.TodoItems__icons .icon::before {
+    content: " ";
+    background: #0275d8;
+    padding: 10px;
+} */
+
+.TodoItems__icons .icon {
+    /* padding: 5px; */
+    margin: 0px 10px;
+
+}
+
+@media only screen and (min-width: 320px) and (max-width: 479px) {
+    .TodoItems__icons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .TodoItems__icons .icons {
+        margin: 5px 0;
+    }
+}
