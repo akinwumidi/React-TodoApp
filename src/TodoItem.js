@@ -5,24 +5,14 @@ import { faPenToSquare } from '@fortawesome/free-regular-svg-icons'
 import "./Todoitem.css"
 
 function TodoItem(props) {
-    let CompStyles = {
-        color: "#cdcdcd",
-        fontStyle: "italic",
-        textDecoration: "line-through"
-    }
+
     return (
         <div className="TodoItems">
-            {/* <input
-                type="checkbox"
-                checked={props.item.completed}
-                onChange={() => props.handleChange(props.item.id)}
-            />
-            <p style={props.item.completed ? CompStyles : null}>{props.item.text} </p> */}
-            <p>{props.item.text}</p>
-            <div className='TodoItems__icons'>
-                <FontAwesomeIcon className="icon" icon={faTrashArrowUp} />
-                <FontAwesomeIcon className="icon" icon={faCircleCheck} />
-                <FontAwesomeIcon className="icon" icon={faPenToSquare} />
+            <p>{props.todoText}</p>
+            <div className='TodoItems__iconsHolder'>
+                <FontAwesomeIcon className="TodoItems__icons-icon" icon={faTrashArrowUp} />
+                <FontAwesomeIcon className="TodoItems__icons-icon" icon={faCircleCheck} />
+                <FontAwesomeIcon className="TodoItems__icons-icon" icon={faPenToSquare} />
 
             </div>
         </div>

@@ -11,7 +11,6 @@
 .TodoAdd__container input {
     padding: 18px;
     outline: none;
-    /* border: none; */
     border: 1px solid #f1f1f1;
     box-shadow: 1px 2px 4px #eee;
     background: #eee;

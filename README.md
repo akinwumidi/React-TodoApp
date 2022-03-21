@@ -12,4 +12,5 @@ A Simple TodoApp Tracker made with React JS
 # Technologies Used <br>
 <li> JSX
 <li> CSS [ Styling ]
+<li> FontAwesome [ Icons ]
 <li> React JS [ Logic / Functionality / Rendering ]

@@ -7,7 +7,7 @@
 body {
     background-image: linear-gradient(to left bottom, #f0ad4e, #ff9871, #ff8e9d, #f490c5, #ca9be0, #b09be4, #929be5, #719be3, #6091e0, #4c88de, #347edb, #0275d8);
     background-size: cover;
-    padding: 80px 0px;
+    padding: 45px 0px;
     height: 2000px;
 }
 
@@ -17,10 +17,9 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 5% auto;
+    margin: 0px auto;
     background: #fff;
     border-radius: 35px;
-    /* border-right: 5px solid black; */
     padding: 20px;
     /* width: 80%; */
     width: 350px;
@@ -46,10 +45,15 @@ input[type="checkbox"] {
 @media only screen and (min-width: 320px) and (max-width: 479px) {
     .TodoItemHolder {
         box-shadow:
+            /*The top layer shadow*/
             0 1px 1px rgba(0, 0, 0, 0.15),
+            /*The second layer shadow */
             0 10px 0 -5px #eee,
+            /*The second layer shadow*/
             0 10px 1px -4px rgba(0, 0, 0, 0.15),
+            /*The third layer shadow */
             0 20px 0 -10px #eee,
+            /*The second layer shadow*/
             0 20px 1px -9px rgba(0, 0, 0, 0.15);
 
     }
