@@ -1,23 +1,23 @@
 const todosData = [
-    {
-        id: 1,
-        text: "Home cleaning",
-        completed: true
-    },
 
     {
-        id: 2,
+        id: 1,
         text: "Family time out",
+        completed: true
+    },
+    {
+        id: 2,
+        text: "Home evening with friends",
         completed: false
     },
     {
         id: 3,
-        text: "Home evening with friends",
-        completed: true
+        text: "Chess time with the boys",
+        completed: false
     },
     {
         id: 4,
-        text: "Chess time with the boys",
+        text: "Family vacation to Hawii",
         completed: false
     }
 ]

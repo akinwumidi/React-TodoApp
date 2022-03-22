@@ -10,11 +10,19 @@ const TodoApp = () => {
     const ToaddHandler = () => { }
     const deleteHandler = (id) => {
         const Newtodos = todo.filter(todo => todo.id != id)
-        console.log(id, Newtodos)
         setTodo(Newtodos)
     }
 
-    const doneHandler = (id) => { }
+    const doneHandler = (id) => {
+        const Newtodos = todo.map((prevTodos) => {
+            if ((prevTodos.id === id && prevTodos.completed === false) || (prevTodos.id === id && prevTodos.completed === true)) {
+                prevTodos.completed = !prevTodos.completed
+            }
+            return prevTodos
+        })
+        setTodo(Newtodos)
+    }
+
     const editHandler = (id) => { }
     const TodoItems = todo.map((Eachtodo) => {
         return (

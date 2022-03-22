@@ -3,14 +3,23 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashArrowUp, faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import { faPenToSquare } from '@fortawesome/free-regular-svg-icons'
 import "./Todoitem.css"
-import stateStyles from "./stateStyles.module.css";
 
 function TodoItem(props) {
+    const completedTodo = {
+        borderRight: "5px solid #5cb85c",
+
+    }
+    const unompletedTodo = {
+        borderLeft: "5px solid #d9534f",
+
+
+    }
+
     return (
         <div
             className="TodoItems"
-        // className={stateStyles.completedTodo}
-        // style={props.completed === true ? stateStyles.completedTodo : null}
+            style={props.completed === true ? completedTodo : unompletedTodo}
+
         >
             <p>{props.todoText}</p>
 
