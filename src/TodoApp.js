@@ -6,10 +6,13 @@ import TodoAdd from "./TodoAdd";
 import { TodoClear } from './TodoClear'
 
 const TodoApp = () => {
+    // const [oldTodos, setOldTodos] = useState({})
     const [todo, setTodo] = useState(todosData);
-    const ToaddHandler = () => { }
+    const ToaddHandler = () => {
+
+    }
     const deleteHandler = (id) => {
-        const Newtodos = todo.filter(todo => todo.id != id)
+        const Newtodos = todo.filter(todo => todo.id !== id)
         setTodo(Newtodos)
     }
 
@@ -24,6 +27,15 @@ const TodoApp = () => {
     }
 
     const editHandler = (id) => { }
+    const clearHandler = () => {
+        setTodo([])
+    }
+    const prevTodos = useRef();
+    useEffect(() => {
+        prevTodos.current = todo
+    }, [todo]);
+    const undoHandler = () => {
+    }
     const TodoItems = todo.map((Eachtodo) => {
         return (
             <TodoItem
@@ -36,19 +48,9 @@ const TodoApp = () => {
                 edit={editHandler}
             />)
     })
-    const clearHandler = () => {
-        setTodo([])
-    }
-    const prevTodos = useRef();
-    useEffect(() => {
-        prevTodos.current = todo
-    }, [todo]);
-    const undoHandler = () => {
-        setTodo(prevTodos.current)
-    }
     return (
         <div className="TodoItemHolder">
-            <TodoAdd Add={ToaddHandler} />
+            <TodoAdd Add={ToaddHandler} text={''} />
             {TodoItems}
             <TodoClear clear={clearHandler} undo={undoHandler} />
         </div>

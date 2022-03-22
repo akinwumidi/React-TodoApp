@@ -10,7 +10,7 @@ const TodoAdd = (props) => {
             <input
                 type='text'
                 name='toaddInput'
-                value={''}
+                value={props.text}
                 onChange={props.Add}
             />
             <button className='btn' onClick={props.Add}>
