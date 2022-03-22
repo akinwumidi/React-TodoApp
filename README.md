@@ -1,11 +1,15 @@
 ![Project Preview](Projectpreview.png)
+
 # Netlify Link
-- 
+
+- reacttodaapp.netlify.app/
 
 # React TodoApp
-A Simple TodoApp Tracker made with React JS
+
+A Simple TodoApp and Note Tracker made with React JS
 
 # Steps to use Application
+
 <li> Download Entire code
 <li>
   

@@ -4,16 +4,16 @@ import './RepeatedStyles.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileArrowDown } from "@fortawesome/free-solid-svg-icons";
 
-const TodoAdd = () => {
+const TodoAdd = (props) => {
     return (
         <div className='TodoAdd__container'>
             <input
                 type='text'
                 name='toaddInput'
                 value={''}
-                onChange={''}
+                onChange={props.Add}
             />
-            <button className='btn' onClick={''}>
+            <button className='btn' onClick={props.Add}>
                 <FontAwesomeIcon icon={faFileArrowDown} />
             </button>
         </div>

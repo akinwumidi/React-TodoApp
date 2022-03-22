@@ -30,7 +30,14 @@
 }
 
 .TodoItems__icons-icon {
+    z-index: 20;
     margin: 4px 0px;
     font-size: 20px;
+    cursor: pointer;
+}
+
+.TodoItems__icons-icon:hover {
+    opacity: 0.95;
+    /* box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5); */
     cursor: pointer;
 }
