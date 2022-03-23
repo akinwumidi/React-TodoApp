@@ -50,7 +50,7 @@ const TodoApp = () => {
     })
     return (
         <div className="TodoItemHolder">
-            <TodoAdd Add={ToaddHandler} text={''} />
+            <TodoAdd Add={ToaddHandler} />
             {TodoItems}
             <TodoClear clear={clearHandler} undo={undoHandler} />
         </div>
