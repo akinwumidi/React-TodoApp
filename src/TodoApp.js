@@ -21,7 +21,7 @@ const TodoApp = () => {
         if (newInput) {
             const newTodoItem = { id: new Date().getTime().toString(), text: newInput, completed: false }
             setTodoList((oldTodos) => {
-                return [...oldTodos, newTodoItem]
+                return [newTodoItem, ...oldTodos]
             })
             setnewInput('')
         }
@@ -52,12 +52,13 @@ const TodoApp = () => {
     }
 
     const TodoItems = todoList.map((Eachtodo) => {
+        const { id, text, completed } = Eachtodo
         return (
             <TodoItem
-                key={Eachtodo.id}
-                id={Eachtodo.id}
-                todoText={Eachtodo.text}
-                completed={Eachtodo.completed}
+                key={id}
+                id={id}
+                todoText={text}
+                completed={completed}
                 delete={deleteHandler}
                 done={doneHandler}
                 edit={editHandler}
