@@ -2,7 +2,7 @@
 
 # Netlify Link
 
-- reacttodaapp.netlify.app/
+- https://reacttodaapp.netlify.app/
 
 # React TodoApp
 

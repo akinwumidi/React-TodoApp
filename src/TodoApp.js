@@ -1,42 +1,57 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState } from 'react'
 import "./TodoApp.css"
 import TodoItem from "./TodoItem";
 import todosData from './todosData'
 import TodoAdd from "./TodoAdd";
 import { TodoClear } from './TodoClear'
 
-const TodoApp = () => {
-    // const [oldTodos, setOldTodos] = useState({})
-    const [todo, setTodo] = useState(todosData);
-    const ToaddHandler = () => {
 
+const TodoApp = () => {
+    const [newInput, setnewInput] = useState('')
+    const [todoList, setTodoList] = useState(todosData);
+
+
+    const onChangeHandler = (e) => {
+        const { value } = e.target
+        setnewInput(value)
     }
+
+    const ToaddHandler = (e) => {
+        e.preventDefault()
+        if (newInput) {
+            const newTodoItem = { id: new Date().getTime().toString(), text: newInput, completed: false }
+            setTodoList((oldTodos) => {
+                return [...oldTodos, newTodoItem]
+            })
+            setnewInput('')
+        }
+    }
+
     const deleteHandler = (id) => {
-        const Newtodos = todo.filter(todo => todo.id !== id)
-        setTodo(Newtodos)
+        const Newtodos = todoList.filter(todo => todo.id !== id)
+        setTodoList(Newtodos)
     }
 
     const doneHandler = (id) => {
-        const Newtodos = todo.map((prevTodos) => {
+        const Newtodos = todoList.map((prevTodos) => {
             if ((prevTodos.id === id && prevTodos.completed === false) || (prevTodos.id === id && prevTodos.completed === true)) {
                 prevTodos.completed = !prevTodos.completed
             }
             return prevTodos
         })
-        setTodo(Newtodos)
+        setTodoList(Newtodos)
     }
 
     const editHandler = (id) => { }
+
     const clearHandler = () => {
-        setTodo([])
+        setTodoList([])
     }
-    const prevTodos = useRef();
-    useEffect(() => {
-        prevTodos.current = todo
-    }, [todo]);
+
     const undoHandler = () => {
     }
-    const TodoItems = todo.map((Eachtodo) => {
+
+    const TodoItems = todoList.map((Eachtodo) => {
         return (
             <TodoItem
                 key={Eachtodo.id}
@@ -48,11 +63,19 @@ const TodoApp = () => {
                 edit={editHandler}
             />)
     })
+
     return (
         <div className="TodoItemHolder">
-            <TodoAdd Add={ToaddHandler} />
+            <TodoAdd
+                add={ToaddHandler}
+                change={onChangeHandler}
+                controlledValue={newInput}
+            />
             {TodoItems}
-            <TodoClear clear={clearHandler} undo={undoHandler} />
+            <TodoClear
+                clear={clearHandler}
+                undo={undoHandler}
+            />
         </div>
     )
 }

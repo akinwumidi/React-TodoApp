@@ -5,7 +5,7 @@ import { faPenToSquare } from '@fortawesome/free-regular-svg-icons'
 import "./Todoitem.css"
 
 function TodoItem(props) {
-    const completedTodo = {
+    const completedTodo = {         
         borderRight: "5px solid #5cb85c",
 
     }
