@@ -7,8 +7,11 @@ import { TodoClear } from './TodoClear'
 
 
 const TodoApp = () => {
-    const [newInput, setnewInput] = useState('')
+    const [newInput, setnewInput] = useState('');
     const [todoList, setTodoList] = useState(todosData);
+    const [EditInUse, setEditInUse] = useState(false)
+    const [todoEditID, setTodoEditID] = useState(0)
+    const [prevTodoList, setPrevTodoList] = useState([])
 
 
     const onChangeHandler = (e) => {
@@ -19,7 +22,11 @@ const TodoApp = () => {
     const ToaddHandler = (e) => {
         e.preventDefault()
         if (newInput) {
-            const newTodoItem = { id: new Date().getTime().toString(), text: newInput, completed: false }
+            const newTodoItem = {
+                text: newInput,
+                completed: false,
+                id: parseInt(new Date().getTime().toString())
+            }
             setTodoList((oldTodos) => {
                 return [newTodoItem, ...oldTodos]
             })
@@ -28,13 +35,16 @@ const TodoApp = () => {
     }
 
     const deleteHandler = (id) => {
+        setPrevTodoList(todoList)
         const Newtodos = todoList.filter(todo => todo.id !== id)
         setTodoList(Newtodos)
     }
 
     const doneHandler = (id) => {
+        setPrevTodoList(todoList)
         const Newtodos = todoList.map((prevTodos) => {
-            if ((prevTodos.id === id && prevTodos.completed === false) || (prevTodos.id === id && prevTodos.completed === true)) {
+            if ((prevTodos.id === id && prevTodos.completed === false) ||
+                (prevTodos.id === id && prevTodos.completed === true)) {
                 prevTodos.completed = !prevTodos.completed
             }
             return prevTodos
@@ -42,17 +52,26 @@ const TodoApp = () => {
         setTodoList(Newtodos)
     }
 
-    const editHandler = (id) => { }
+    const editHandler = (id) => {
+        setPrevTodoList(todoList)
+        console.log(id)
+        const SpecificTodoItem = todoList.find((todo) => todo.id === id)
+        setnewInput(SpecificTodoItem.text)
+        setTodoEditID(id)
+        setEditInUse(true)
+    }
 
     const clearHandler = () => {
+        setPrevTodoList(todoList)
         setTodoList([])
     }
 
     const undoHandler = () => {
+        setTodoList(prevTodoList)
     }
 
-    const TodoItems = todoList.map((Eachtodo) => {
-        const { id, text, completed } = Eachtodo
+    const TodoItems = todoList.map((EachtodoInList) => {
+        const { id, text, completed } = EachtodoInList
         return (
             <TodoItem
                 key={id}

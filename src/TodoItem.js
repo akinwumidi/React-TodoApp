@@ -5,21 +5,17 @@ import { faPenToSquare } from '@fortawesome/free-regular-svg-icons'
 import "./Todoitem.css"
 
 function TodoItem(props) {
-    const completedTodo = {         
+    const completedTodo = {
         borderRight: "5px solid #5cb85c",
-
     }
     const unompletedTodo = {
-        borderLeft: "5px solid #d9534f",
-
-
+        borderLeft: "5px solid #d9534f"
     }
 
     return (
         <div
             className="TodoItems"
             style={props.completed === true ? completedTodo : unompletedTodo}
-
         >
             <p>{props.todoText}</p>
 
