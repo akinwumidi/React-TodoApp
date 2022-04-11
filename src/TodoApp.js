@@ -32,6 +32,15 @@ const TodoApp = () => {
             })
             setnewInput('')
         }
+        if (newInput && EditInUse) {
+            const TodoTextUpdater = todoList.map((todos) => {
+                if (todos.id === todoEditID) {
+                    return { ...todos, text: newInput }
+                }
+                return todos
+            })
+            setTodoList(TodoTextUpdater)
+        }
     }
 
     const deleteHandler = (id) => {
@@ -54,11 +63,10 @@ const TodoApp = () => {
 
     const editHandler = (id) => {
         setPrevTodoList(todoList)
-        console.log(id)
         const SpecificTodoItem = todoList.find((todo) => todo.id === id)
         setnewInput(SpecificTodoItem.text)
-        setTodoEditID(id)
         setEditInUse(true)
+        setTodoEditID(id)
     }
 
     const clearHandler = () => {
