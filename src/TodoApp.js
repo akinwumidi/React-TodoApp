@@ -13,7 +13,6 @@ const TodoApp = () => {
     const [todoEditID, setTodoEditID] = useState(0)
     const [prevTodoList, setPrevTodoList] = useState([])
 
-
     const onChangeHandler = (e) => {
         const { value } = e.target
         setnewInput(value)
@@ -21,6 +20,7 @@ const TodoApp = () => {
 
     const ToaddHandler = (e) => {
         e.preventDefault()
+        setPrevTodoList(todoList)
         if (newInput) {
             const newTodoItem = {
                 text: newInput,
@@ -91,7 +91,6 @@ const TodoApp = () => {
                 edit={editHandler}
             />)
     })
-
     return (
         <div className="TodoItemHolder">
             <TodoAdd
